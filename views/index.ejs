@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>Stock Portfolio</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Tornado</li>
+                <li>Login</li>
+                <li>Sign-up</li>
+                <li><a href="/news">Stock News</a></li>
+                <li> <a href="/api">Stock Fundamentals</a></li>
+                <li> <a href="/sitemap">Sitemap</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <h1>Stock Portfolio</h1>
+    <hr>
+
+
+    <div class="container">
+        <div class="ch">
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div class="container1">
+
+            <form method="post" action="/addStock">
+                <label for="stockSymbol">Stock Symbol:</label>
+                <input type="text" id="stockSymbol" name="stockSymbol" required>
+                <label for="stockQuantity">Quantity:</label>
+                <input type="number" id="stockQuantity" name="stockQuantity" required>
+                <button type="submit">Add</button>
+            </form>
+
+
+
+            <h3>Total Portfolio Value: $<%= totalValue.toFixed(2) %>
+            </h3>
+        </div>
+    </div>
+    <h2>Stocks</h2>
+    <hr>
+    <% if (stocks.length> 0) { %>
+        <table class="stock-table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Value</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let totalValue=0; %>
+                    <% stocks.forEach(stock=> { %>
+                        <tr>
+                            <td>
+                                <%= stock.symbol %>
+                            </td>
+                            <td>$<%= stock.price %>
+                            </td>
+                            <td>
+                                <%= stock.quantity %>
+                            </td>
+                            <% const stockValue=stock.price * stock.quantity; %>
+                                <td>$<%= stockValue.toFixed(2) %>
+                                </td>
+                                <td>
+                                    <form method="post" action="/deleteStock">
+                                        <input type="hidden" name="stockId" value="<%= stock._id %>">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                        </tr>
+                        <% totalValue +=stockValue; %>
+                            <% }); %>
+            </tbody>
+        </table>
+        <h3 class="stock-total">Total Portfolio Value: $<%= totalValue.toFixed(2) %>
+
+        </h3>
+
+        <% } else { %>
+            <p>No stocks in the portfolio.</p>
+            <% } %>
+
+
+
+                <!-- Add the canvas element for the pie chart with the correct ID -->
+
+
+                <script>
+
+                    async function generatePieChart() {
+                        const response = await fetch('/stocks'); // Create a new route to fetch stock data
+                        const stocks = await response.json();
+
+                        const labels = [];
+                        const data = [];
+                        stocks.forEach(stock => {
+                            labels.push(stock.symbol);
+                            data.push(stock.price * stock.quantity);
+                        });
+
+                        const ctx = document.getElementById('pieChart').getContext('2d');
+                        const pieChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    data: data,
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.6)',
+                                        'rgba(54, 162, 235, 0.6)',
+                                        'rgba(255, 206, 86, 0.6)',
+                                        'rgba(75, 192, 192, 0.6)',
+                                        'rgba(153, 102, 255, 0.6)',
+                                    ],
+                                }],
+                            },
+                        });
+                    }
+
+                    // Call the function to generate the pie chart when the page loads
+                    generatePieChart();
+                </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #13113C;
+    color: white;
+    font-family: 'Lato', sans-serif;
+
+}
+
+
+header {
+    width: 90vw;
+    border: 2px solid white;
+    margin: 0 0 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 5px 10px;
+}
+
+a {
+    color: white;
+}
+
+.chart {
+    width: 80vw;
+    height: 80vh;
+}
+
+.container {
+    max-width: 900px;
+    height: 900px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    margin: 10px 0;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.chartContainer,
+.chart1,
+.chart {
+
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 900px;
+    height: 500px;
+    margin: 10px 0 15px 0;
+
+}

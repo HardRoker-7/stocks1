@@ -1,0 +1,147 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #13113C;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+header {
+    width: 80vw;
+    border: 2px solid white;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+li {
+    padding: 5px 10px;
+}
+
+
+/* Style for the pie chart */
+.ch {
+    width: 600px;
+    height: 400px;
+    /* margin: 20px auto; */
+}
+
+/* Style for the stock list and table sections */
+.container {
+    width: 70vw;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    color: black;
+
+}
+
+table {
+    margin: 0 auto;
+}
+
+h3 {
+    padding-top: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+
+}
+
+h1,
+h2 {
+    margin-bottom: 0;
+}
+
+.stock-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-card-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjustments for the existing table */
+.stock-table {
+    /* ... existing styles ... */
+    margin-top: 20px;
+}
+
+
+.stock-table th,
+.stock-table td {
+    padding: 10px;
+}
+
+button:nth-of-type(1) {
+    margin-top: 15px;
+    width: fit-content;
+
+}
+
+.stock-table {
+    width: 80vw;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+.stock-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #fff;
+    border-collapse: collapse;
+}
+
+.stock-table th {
+    background-color: black;
+    color: #fff;
+}
+
+.stock-table td {
+    background-color: #1E1C4E;
+    color: #fff;
+}
+
+.stock-table td button {
+    background-color: transparent;
+    border: none;
+    color: #FF6961;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.stock-table td button:hover {
+    color: #FF4136;
+}

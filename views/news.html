@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/news.css">
+
+
+    <title>Stock Dashboard</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Tornado</li>
+                <li>Login</li>
+                <li>Sign-up</li>
+                <li><a href="/index">Home</a></li>
+                <li> <a href="/api">Stock Fundamentals</a></li>
+                <li> <a href="/sitemap">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <div class="news">
+            <h2>Latest Stock News</h2>
+            <button onclick="toggleNews()">Fetch Latest Stock News</button>
+            <!-- <button onclick="getStockMarketNews()">Fetch Latest Stock News</button> -->
+            <div id="news-container"></div>
+        </div>
+
+
+    </main>
+    <script src="/js/news.js"></script>
+</body>
+
+</html>

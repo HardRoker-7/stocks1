@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Company Financials Bar Graph</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>Tornado</li>
+        <li>Login</li>
+        <li>Sign-up</li>
+        <li><a href="/index">Home</a></li>
+        <li> <a href="/news">Stocks News</a></li>
+        <li> <a href="/sitemap">Sitemap</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="searchBar">
+
+    <label for="companySymbol">Enter Company Symbol:</label>
+    <input type="text" id="companySymbol" />
+
+    <button onclick="fetchData()">Income</button>
+    <button onclick="getFinancialData()">Show Common Stock</button>
+    <button onclick="fetchAndPlotData()">Plot</button>
+
+    <!-- <button onclick="clearInput()">Clear Input</button> -->
+    <button onclick="clearInput1()">Clear Input</button>
+    <button onclick="clearInput()">Clear Input</button>
+    <!-- <div class="container"> -->
+
+  </div>
+  <div class="charts">
+    <div class="chartContainer">
+
+
+      <h2 id="companySymbolDisplay1"></h2>
+      <canvas id="stockChart1"></canvas>
+    </div>
+
+    <div class="chart">
+      <h2 id="companySymbolDisplay"></h2>
+      <canvas id="financialChart"></canvas>
+    </div>
+    <div class="chart1">
+      <h2 id="priceChart"></h2>
+      <canvas id="stockChart"></canvas>
+    </div>
+
+  </div>
+  <script src="/js/income.js"></script>
+
+
+</body>
+
+</html>
